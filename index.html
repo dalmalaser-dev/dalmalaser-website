@@ -1,200 +1,41 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { CheckCircle, Phone, Mail, Sparkles, Hammer, ShoppingCart } from "lucide-react";
-import { motion } from "framer-motion";
+<!doctype html><html lang="hr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dalma Laser – Lasersko čišćenje</title>
+<link rel="stylesheet" href="style.css">
+</head><body>
+<header class="header"><div class="container header__inner">
+  <div class="brand">DALMA LASER</div>
+  <nav class="nav"><a href="#usluge">Usluge</a><a href="#najam">Najam</a><a href="#prodaja">Prodaja</a><a href="#kontakt">Kontakt</a></nav>
+  <a class="btn" href="#kontakt">Zatraži ponudu</a>
+</div></header>
 
-export default function DalmaLaserLanding() {
-  const [sent, setSent] = useState(false);
+<section class="hero"><div class="container grid grid-2">
+  <div><h1>Lasersko čišćenje bez kemikalija</h1>
+    <p>Hrđa, boja, grafiti – sigurno za kamen, metal i fasade.</p>
+    <a class="btn btn--lg" href="mailto:dalmalaser@gmail.com?subject=Upit%20–%20Dalma%20Laser">Pošalji upit</a>
+    <ul class="bullets clean mt-4"><li>• Bez abraziva i otapala</li><li>• Mobilna usluga</li><li>• Minimalan utjecaj</li><li>• Precizno čišćenje</li></ul>
+  </div>
+  <div class="card"><div class="card__body">
+    <div class="card__title">Što čistimo</div>
+    <div class="card__text">Industrijski metal, kamen & fasade, grafiti, oksidi, boje…</div>
+  </div></div>
+</div></section>
 
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white text-slate-900">
-      {/* NAV */}
-      <header className="sticky top-0 z-40 backdrop-blur bg-white/70 border-b">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Sparkles className="w-6 h-6" />
-            <span className="font-semibold tracking-wide">DALMA LASER</span>
-          </div>
-          <nav className="hidden md:flex items-center gap-6 text-sm">
-            <a href="#usluge" className="hover:opacity-80">Usluge čišćenja</a>
-            <a href="#najam" className="hover:opacity-80">Najam lasera</a>
-            <a href="#prodaja" className="hover:opacity-80">Prodaja</a>
-            <a href="#kontakt" className="hover:opacity-80">Kontakt</a>
-          </nav>
-          <a href="#kontakt" className="md:inline-block hidden">
-            <Button className="rounded-2xl">Zatraži ponudu</Button>
-          </a>
-        </div>
-      </header>
+<section id="kontakt" class="section section--alt"><div class="container grid grid-2">
+  <div><h2>Kontakt</h2><p class="mt-2">Odgovor stiže brzo.</p>
+    <p class="mt-3">📞 +385 91 955 2054</p>
+    <p>✉️ <a href="mailto:dalmalaser@gmail.com">dalmalaser@gmail.com</a></p>
+  </div>
+  <div class="card"><div class="card__body">
+    <div class="card__title">Brza poruka</div>
+    <form action="mailto:dalmalaser@gmail.com" method="post" enctype="text/plain">
+      <input class="input mt-2" name="Ime" placeholder="Ime i prezime" required>
+      <input class="input mt-2" type="email" name="Email" placeholder="Email" required>
+      <textarea class="textarea mt-2" name="Poruka" placeholder="Kako možemo pomoći?"></textarea>
+      <button class="btn mt-3" type="submit">Pošalji</button>
+    </form>
+  </div></div>
+</div></section>
 
-      {/* HERO */}
-      <section className="relative">
-        <div className="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
-          <motion.div initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} transition={{duration:0.5}}>
-            <h1 className="text-3xl md:text-5xl font-extrabold leading-tight">
-              Lasersko čišćenje <span className="whitespace-nowrap">bez kemikalija</span>
-            </h1>
-            <p className="mt-4 text-slate-600 text-lg">
-              Brzo i precizno uklanjanje hrđe, boje i grafita uz minimalno trošenje podloge. Idealno za kamen, metal, fasade i industrijsku opremu.
-            </p>
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              <Button size="lg" className="rounded-2xl" href="#kontakt" asChild>
-                <a href="#kontakt">Zatraži besplatnu procjenu</a>
-              </Button>
-              <a href="#usluge" className="text-sm underline">Saznaj više</a>
-            </div>
-            <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-              {["Bez abraziva i otapala","Minimalan utjecaj na okoliš","Mobilna usluga na lokaciji","Precizno i kontrolirano čišćenje"].map((p)=> (
-                <li key={p} className="flex items-start gap-2"><CheckCircle className="w-5 h-5 mt-0.5"/> {p}</li>
-              ))}
-            </ul>
-          </motion.div>
-          <motion.div initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} transition={{duration:0.5, delay:0.1}}>
-            <Card className="shadow-xl rounded-3xl">
-              <CardHeader>
-                <CardTitle>Brza kalkulacija</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid gap-3">
-                  <Input placeholder="Vaše ime" />
-                  <Input placeholder="Email ili telefon" />
-                  <Textarea placeholder="Opišite posao (npr. površina, materijal, lokacija)" rows={4} />
-                  <Button className="rounded-2xl" onClick={()=>setSent(true)}>
-                    Pošalji upit
-                  </Button>
-                  {sent && (
-                    <div className="text-sm text-green-700">Hvala! Javit ćemo se uskoro.</div>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* USLUGE ČIŠĆENJA – PRVO */}
-      <section id="usluge" className="py-16 md:py-24 border-t">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold">Usluge laserskog čišćenja</h2>
-          <p className="mt-2 text-slate-600">Primarno pružamo uslugu čišćenja na lokaciji klijenta.</p>
-          <div className="mt-8 grid md:grid-cols-3 gap-6">
-            <Card className="rounded-2xl">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2"><Hammer className="w-5 h-5"/> Industrija & metal</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-slate-600">
-                Uklanjanje hrđe, boje, oksida, ulja i slojeva s alata, kalupa, strojeva i konstrukcija.
-              </CardContent>
-            </Card>
-            <Card className="rounded-2xl">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2"><Sparkles className="w-5 h-5"/> Kamen & fasade</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-slate-600">
-                Čišćenje fasada, spomenika, stepenica i ploča uz očuvanje teksture podloge.
-              </CardContent>
-            </Card>
-            <Card className="rounded-2xl">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2"><Sparkles className="w-5 h-5"/> Grafiti</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-slate-600">
-                Precizno uklanjanje grafita bez oštećenja podloge – beton, kamen, metal, drvo.
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* NAJAM – DRUGO */}
-      <section id="najam" className="py-16 md:py-24 border-t bg-slate-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold">Najam laserskih strojeva</h2>
-          <p className="mt-2 text-slate-600">Dnevni ili tjedni najam s obukom i podrškom.</p>
-          <div className="mt-6 grid md:grid-cols-2 gap-6">
-            <Card className="rounded-2xl">
-              <CardHeader>
-                <CardTitle>300 W pulsed – mobilni sustav</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-slate-600">
-                Za finije površine, restauraciju kamena i kontrolirano čišćenje.
-              </CardContent>
-            </Card>
-            <Card className="rounded-2xl">
-              <CardHeader>
-                <CardTitle>2000 W CW – industrijsko čišćenje</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-slate-600">
-                Brže uklanjanje slojeva na većim površinama i tvrdokornim nečistoćama.
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* PRODAJA – TREĆE */}
-      <section id="prodaja" className="py-16 md:py-24 border-t">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold">Prodaja laserskih uređaja</h2>
-          <p className="mt-2 text-slate-600">Savjetovanje pri odabiru, instalacija i obuka.</p>
-          <div className="mt-8 grid md:grid-cols-3 gap-6">
-            {["300 W pulsed","1000 W pulsed","2000–3000 W pulsed"].map((m)=> (
-              <Card key={m} className="rounded-2xl">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2"><ShoppingCart className="w-5 h-5"/> {m}</CardTitle>
-                </CardHeader>
-                <CardContent className="text-sm text-slate-600">
-                  Konfiguracije po mjeri projekta, dostupne F-Theta leće i dodatna oprema.
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* KONTAKT */}
-      <section id="kontakt" className="py-16 md:py-24 border-t bg-slate-50">
-        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-start">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-bold">Kontakt</h2>
-            <p className="mt-2 text-slate-600">Nazovi ili pošalji upit – odgovor stiže brzo.</p>
-            <div className="mt-6 space-y-2 text-slate-700">
-              <p className="flex items-center gap-2"><Phone className="w-5 h-5"/> +385 91 955 2054</p>
-              <p className="flex items-center gap-2"><Mail className="w-5 h-5"/> dalmalaser@gmail.com</p>
-            </div>
-          </div>
-          <Card className="rounded-2xl">
-            <CardHeader>
-              <CardTitle>Pošalji poruku</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid gap-3">
-                <Input placeholder="Ime i prezime" />
-                <Input placeholder="Email" />
-                <Textarea rows={4} placeholder="Kako vam možemo pomoći?" />
-                <Button className="rounded-2xl" onClick={()=>setSent(true)}>Pošalji</Button>
-                {sent && <div className="text-sm text-green-700">Poruka je poslana. Hvala!</div>}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="py-10 border-t">
-        <div className="max-w-6xl mx-auto px-4 text-sm text-slate-500 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p>© {new Date().getFullYear()} Dalma Laser • Lasersko čišćenje, najam i prodaja</p>
-          <div className="flex gap-6">
-            <a href="#usluge" className="hover:underline">Usluge</a>
-            <a href="#najam" className="hover:underline">Najam</a>
-            <a href="#prodaja" className="hover:underline">Prodaja</a>
-            <a href="#kontakt" className="hover:underline">Kontakt</a>
-          </div>
-        </div>
-      </footer>
-    </div>
-  );
-}
+<footer class="footer"><div class="container">© Dalma Laser • Lasersko čišćenje, najam i prodaja</div></footer>
+</body></html>
